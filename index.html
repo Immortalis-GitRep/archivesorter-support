@@ -80,104 +80,341 @@
       color: var(--muted);
       font-size: 0.85rem;
     }
+    .lang-switch {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .lang-switch button {
+      padding: 0.35rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 0.85rem;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .lang-switch button.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+    .lang { display: none; }
+    .lang.active { display: block; }
   </style>
 </head>
 <body>
 
-  <h1>Support</h1>
-  <div class="meta">
-    ArchiveSorter &middot; Document Management for iPhone &amp; iPad
+  <div class="lang-switch">
+    <button onclick="setLang('en')" id="btn-en" class="active">English</button>
+    <button onclick="setLang('de')" id="btn-de">Deutsch</button>
+    <button onclick="setLang('fr')" id="btn-fr">Fran&ccedil;ais</button>
   </div>
 
-  <div class="highlight">
-    Need help? Send an email to
-    <a href="mailto:developer.schreck@icloud.com">developer.schreck@icloud.com</a>
-    and you will receive a reply as quickly as possible.
+  <!-- ==================== ENGLISH ==================== -->
+  <div class="lang active" id="lang-en">
+    <h1>Support</h1>
+    <div class="meta">ArchiveSorter &middot; Document Management for iPhone &amp; iPad</div>
+
+    <div class="highlight">
+      Need help? Send an email to
+      <a href="mailto:developer.schreck@icloud.com">developer.schreck@icloud.com</a>
+      and you will receive a reply as quickly as possible.
+    </div>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <details>
+      <summary>How do I get started?</summary>
+      <p>After installing the app, the onboarding guide will walk you through
+      selecting a folder as your document library. This can be a local folder
+      or a cloud-synced folder (iCloud Drive, Dropbox, etc.). Once set up,
+      you can scan or import documents and the app will automatically
+      classify and file them.</p>
+    </details>
+
+    <details>
+      <summary>Which devices are supported?</summary>
+      <p>ArchiveSorter requires iOS/iPadOS 26.0 or later and a device
+      that supports Apple Intelligence. This includes iPhone 15 Pro,
+      iPhone 15 Pro Max, and all later iPhone models, as well as
+      iPad and Mac models with an M1 chip or later.</p>
+    </details>
+
+    <details>
+      <summary>Where are my documents stored?</summary>
+      <p>All documents are stored in the library folder you selected during
+      setup. The app never uploads your documents to any server. If you
+      chose a cloud-synced folder (e.g. iCloud Drive), synchronization
+      is handled by that cloud provider, not by ArchiveSorter.</p>
+    </details>
+
+    <details>
+      <summary>How does the AI classification work?</summary>
+      <p>ArchiveSorter uses on-device language models (Apple MLX or
+      Foundation Models) to read your scanned text and assign a category.
+      All processing happens locally on your device. Optionally, you can
+      connect a local LM Studio server on your own network for
+      classification.</p>
+    </details>
+
+    <details>
+      <summary>Can I change how a document was classified?</summary>
+      <p>Yes. Documents that the app is unsure about are placed in the
+      Review tab for your manual decision. You can also move any document
+      to a different category folder at any time using the app or the
+      Files app.</p>
+    </details>
+
+    <details>
+      <summary>Does the app work offline?</summary>
+      <p>Yes. Scanning, OCR, and on-device classification work entirely
+      without an internet connection. An internet connection is only
+      needed if you choose to download an MLX model from Hugging Face.</p>
+    </details>
+
+    <details>
+      <summary>How do I delete a document permanently?</summary>
+      <p>Deleted documents are first moved to the app's trash folder.
+      Documents in trash are automatically purged after 30 days, or you
+      can empty the trash manually.</p>
+    </details>
+
+    <details>
+      <summary>I found a bug or have a feature request</summary>
+      <p>Please send an email to
+      <a href="mailto:developer.schreck@icloud.com">developer.schreck@icloud.com</a>
+      with a description of the issue or your idea. Screenshots or screen
+      recordings are very helpful for bug reports.</p>
+    </details>
+
+    <h2>Contact</h2>
+    <p>
+      Sebastian Schreck<br>
+      Nürtinger Straße 52<br>
+      71032 Böblingen<br>
+      Germany<br>
+      Phone: <a href="tel:+491623853102">+49 162 3853102</a><br>
+      Email: <a href="mailto:developer.schreck@icloud.com">developer.schreck@icloud.com</a>
+    </p>
+
+    <p style="margin-top: 1.5rem;">
+      <a href="https://immortalis-gitrep.github.io/archivesorter-privacy/">Privacy Policy</a>
+    </p>
   </div>
 
-  <h2>Frequently Asked Questions</h2>
+  <!-- ==================== DEUTSCH ==================== -->
+  <div class="lang" id="lang-de">
+    <h1>Support</h1>
+    <div class="meta">ArchiveSorter &middot; Dokumentenverwaltung f&uuml;r iPhone &amp; iPad</div>
 
-  <details>
-    <summary>How do I get started?</summary>
-    <p>After installing the app, the onboarding guide will walk you through
-    selecting a folder as your document library. This can be a local folder
-    or a cloud-synced folder (iCloud Drive, Dropbox, etc.). Once set up,
-    you can scan or import documents and the app will automatically
-    classify and file them.</p>
-  </details>
+    <div class="highlight">
+      Hilfe ben&ouml;tigt? Senden Sie eine E-Mail an
+      <a href="mailto:developer.schreck@icloud.com">developer.schreck@icloud.com</a>
+      und Sie erhalten so schnell wie m&ouml;glich eine Antwort.
+    </div>
 
-  <details>
-    <summary>Which devices are supported?</summary>
-    <p>ArchiveSorter requires iOS/iPadOS 26.0 or later and a device
-    that supports Apple Intelligence. This includes iPhone 15 Pro,
-    iPhone 15 Pro Max, and all later iPhone models, as well as
-    iPad and Mac models with an M1 chip or later.</p>
-  </details>
+    <h2>H&auml;ufig gestellte Fragen</h2>
 
-  <details>
-    <summary>Where are my documents stored?</summary>
-    <p>All documents are stored in the library folder you selected during
-    setup. The app never uploads your documents to any server. If you
-    chose a cloud-synced folder (e.g. iCloud Drive), synchronization
-    is handled by that cloud provider, not by ArchiveSorter.</p>
-  </details>
+    <details>
+      <summary>Wie fange ich an?</summary>
+      <p>Nach der Installation f&uuml;hrt Sie der Einrichtungsassistent durch
+      die Auswahl eines Ordners als Dokumentenbibliothek. Dies kann ein
+      lokaler Ordner oder ein cloud-synchronisierter Ordner sein
+      (iCloud Drive, Dropbox usw.). Nach der Einrichtung k&ouml;nnen Sie
+      Dokumente scannen oder importieren und die App klassifiziert und
+      archiviert sie automatisch.</p>
+    </details>
 
-  <details>
-    <summary>How does the AI classification work?</summary>
-    <p>ArchiveSorter uses on-device language models (Apple MLX or
-    Foundation Models) to read your scanned text and assign a category.
-    All processing happens locally on your device. Optionally, you can
-    connect a local LM Studio server on your own network for
-    classification.</p>
-  </details>
+    <details>
+      <summary>Welche Ger&auml;te werden unterst&uuml;tzt?</summary>
+      <p>ArchiveSorter erfordert iOS/iPadOS 26.0 oder neuer sowie ein
+      Ger&auml;t mit Apple-Intelligence-Unterst&uuml;tzung. Dazu geh&ouml;ren
+      iPhone 15 Pro, iPhone 15 Pro Max und alle neueren iPhone-Modelle
+      sowie iPad- und Mac-Modelle mit M1-Chip oder neuer.</p>
+    </details>
 
-  <details>
-    <summary>Can I change how a document was classified?</summary>
-    <p>Yes. Documents that the app is unsure about are placed in the
-    Review tab for your manual decision. You can also move any document
-    to a different category folder at any time using the app or the
-    Files app.</p>
-  </details>
+    <details>
+      <summary>Wo werden meine Dokumente gespeichert?</summary>
+      <p>Alle Dokumente werden in dem Bibliotheksordner gespeichert, den
+      Sie bei der Einrichtung ausgew&auml;hlt haben. Die App l&auml;dt Ihre
+      Dokumente niemals auf einen Server hoch. Wenn Sie einen
+      cloud-synchronisierten Ordner gew&auml;hlt haben (z.&nbsp;B. iCloud Drive),
+      wird die Synchronisation vom jeweiligen Cloud-Anbieter
+      durchgef&uuml;hrt, nicht von ArchiveSorter.</p>
+    </details>
 
-  <details>
-    <summary>Does the app work offline?</summary>
-    <p>Yes. Scanning, OCR, and on-device classification work entirely
-    without an internet connection. An internet connection is only
-    needed if you choose to download an MLX model from Hugging Face.</p>
-  </details>
+    <details>
+      <summary>Wie funktioniert die KI-Klassifizierung?</summary>
+      <p>ArchiveSorter verwendet On-Device-Sprachmodelle (Apple MLX oder
+      Foundation Models), um Ihren gescannten Text zu lesen und eine
+      Kategorie zuzuweisen. Die gesamte Verarbeitung erfolgt lokal auf
+      Ihrem Ger&auml;t. Optional k&ouml;nnen Sie einen lokalen LM-Studio-Server
+      in Ihrem Netzwerk f&uuml;r die Klassifizierung verwenden.</p>
+    </details>
 
-  <details>
-    <summary>How do I delete a document permanently?</summary>
-    <p>Deleted documents are first moved to the app's trash folder.
-    Documents in trash are automatically purged after 30 days, or you
-    can empty the trash manually.</p>
-  </details>
+    <details>
+      <summary>Kann ich die Klassifizierung eines Dokuments &auml;ndern?</summary>
+      <p>Ja. Dokumente, bei denen die App unsicher ist, werden im
+      &Uuml;berpr&uuml;fungs-Tab zur manuellen Entscheidung abgelegt. Sie k&ouml;nnen
+      jedes Dokument jederzeit &uuml;ber die App oder die Dateien-App in
+      einen anderen Kategorieordner verschieben.</p>
+    </details>
 
-  <details>
-    <summary>I found a bug or have a feature request</summary>
-    <p>Please send an email to
-    <a href="mailto:developer.schreck@icloud.com">developer.schreck@icloud.com</a>
-    with a description of the issue or your idea. Screenshots or screen
-    recordings are very helpful for bug reports.</p>
-  </details>
+    <details>
+      <summary>Funktioniert die App offline?</summary>
+      <p>Ja. Scannen, OCR und On-Device-Klassifizierung funktionieren
+      vollst&auml;ndig ohne Internetverbindung. Eine Internetverbindung wird
+      nur ben&ouml;tigt, wenn Sie ein MLX-Modell von Hugging Face
+      herunterladen m&ouml;chten.</p>
+    </details>
 
-  <h2>Contact</h2>
-  <p>
-    Sebastian Schreck<br>
-    Nürtinger Straße 52<br>
-    71032 Böblingen<br>
-    Germany<br>
-    Phone: <a href="tel:+491623853102">+49 162 3853102</a><br>
-    Email: <a href="mailto:developer.schreck@icloud.com">developer.schreck@icloud.com</a>
-  </p>
+    <details>
+      <summary>Wie l&ouml;sche ich ein Dokument dauerhaft?</summary>
+      <p>Gel&ouml;schte Dokumente werden zun&auml;chst in den Papierkorb der App
+      verschoben. Dokumente im Papierkorb werden nach 30 Tagen
+      automatisch endg&uuml;ltig gel&ouml;scht, oder Sie k&ouml;nnen den Papierkorb
+      manuell leeren.</p>
+    </details>
 
-  <p style="margin-top: 1.5rem;">
-    <a href="index.html">Privacy Policy</a>
-  </p>
+    <details>
+      <summary>Ich habe einen Fehler gefunden oder eine Funktionsanfrage</summary>
+      <p>Bitte senden Sie eine E-Mail an
+      <a href="mailto:developer.schreck@icloud.com">developer.schreck@icloud.com</a>
+      mit einer Beschreibung des Problems oder Ihrer Idee. Screenshots
+      oder Bildschirmaufnahmen sind bei Fehlerberichten sehr hilfreich.</p>
+    </details>
+
+    <h2>Kontakt</h2>
+    <p>
+      Sebastian Schreck<br>
+      Nürtinger Straße 52<br>
+      71032 Böblingen<br>
+      Deutschland<br>
+      Telefon: <a href="tel:+491623853102">+49 162 3853102</a><br>
+      E-Mail: <a href="mailto:developer.schreck@icloud.com">developer.schreck@icloud.com</a>
+    </p>
+
+    <p style="margin-top: 1.5rem;">
+      <a href="https://immortalis-gitrep.github.io/archivesorter-privacy/">Datenschutzerkl&auml;rung</a>
+    </p>
+  </div>
+
+  <!-- ==================== FRANCAIS ==================== -->
+  <div class="lang" id="lang-fr">
+    <h1>Assistance</h1>
+    <div class="meta">ArchiveSorter &middot; Gestion de documents pour iPhone &amp; iPad</div>
+
+    <div class="highlight">
+      Besoin d&rsquo;aide ? Envoyez un e-mail &agrave;
+      <a href="mailto:developer.schreck@icloud.com">developer.schreck@icloud.com</a>
+      et vous recevrez une r&eacute;ponse dans les meilleurs d&eacute;lais.
+    </div>
+
+    <h2>Foire aux questions</h2>
+
+    <details>
+      <summary>Comment d&eacute;marrer ?</summary>
+      <p>Apr&egrave;s l&rsquo;installation, l&rsquo;assistant de configuration vous guidera
+      pour s&eacute;lectionner un dossier comme biblioth&egrave;que de documents.
+      Il peut s&rsquo;agir d&rsquo;un dossier local ou d&rsquo;un dossier synchronis&eacute;
+      dans le cloud (iCloud Drive, Dropbox, etc.). Une fois configur&eacute;,
+      vous pouvez num&eacute;riser ou importer des documents et l&rsquo;application
+      les classera et les archivera automatiquement.</p>
+    </details>
+
+    <details>
+      <summary>Quels appareils sont pris en charge ?</summary>
+      <p>ArchiveSorter n&eacute;cessite iOS/iPadOS 26.0 ou ult&eacute;rieur et un
+      appareil compatible avec Apple Intelligence. Cela inclut
+      l&rsquo;iPhone 15 Pro, l&rsquo;iPhone 15 Pro Max et tous les mod&egrave;les
+      d&rsquo;iPhone ult&eacute;rieurs, ainsi que les mod&egrave;les d&rsquo;iPad et de Mac
+      &eacute;quip&eacute;s d&rsquo;une puce M1 ou ult&eacute;rieure.</p>
+    </details>
+
+    <details>
+      <summary>O&ugrave; sont stock&eacute;s mes documents ?</summary>
+      <p>Tous les documents sont stock&eacute;s dans le dossier de biblioth&egrave;que
+      que vous avez s&eacute;lectionn&eacute; lors de la configuration. L&rsquo;application
+      ne t&eacute;l&eacute;charge jamais vos documents sur un serveur. Si vous avez
+      choisi un dossier synchronis&eacute; dans le cloud (p. ex. iCloud Drive),
+      la synchronisation est g&eacute;r&eacute;e par ce fournisseur cloud, pas par
+      ArchiveSorter.</p>
+    </details>
+
+    <details>
+      <summary>Comment fonctionne la classification par IA ?</summary>
+      <p>ArchiveSorter utilise des mod&egrave;les linguistiques sur l&rsquo;appareil
+      (Apple MLX ou Foundation Models) pour lire votre texte num&eacute;ris&eacute;
+      et attribuer une cat&eacute;gorie. Tout le traitement s&rsquo;effectue
+      localement sur votre appareil. En option, vous pouvez connecter
+      un serveur LM Studio local sur votre r&eacute;seau pour la
+      classification.</p>
+    </details>
+
+    <details>
+      <summary>Puis-je modifier la classification d&rsquo;un document ?</summary>
+      <p>Oui. Les documents dont l&rsquo;application n&rsquo;est pas s&ucirc;re sont
+      plac&eacute;s dans l&rsquo;onglet R&eacute;vision pour votre d&eacute;cision manuelle.
+      Vous pouvez &eacute;galement d&eacute;placer n&rsquo;importe quel document vers un
+      autre dossier de cat&eacute;gorie &agrave; tout moment via l&rsquo;application ou
+      l&rsquo;application Fichiers.</p>
+    </details>
+
+    <details>
+      <summary>L&rsquo;application fonctionne-t-elle hors ligne ?</summary>
+      <p>Oui. La num&eacute;risation, l&rsquo;OCR et la classification sur l&rsquo;appareil
+      fonctionnent enti&egrave;rement sans connexion Internet. Une connexion
+      Internet n&rsquo;est n&eacute;cessaire que si vous choisissez de t&eacute;l&eacute;charger
+      un mod&egrave;le MLX depuis Hugging Face.</p>
+    </details>
+
+    <details>
+      <summary>Comment supprimer d&eacute;finitivement un document ?</summary>
+      <p>Les documents supprim&eacute;s sont d&rsquo;abord d&eacute;plac&eacute;s dans la corbeille
+      de l&rsquo;application. Les documents dans la corbeille sont
+      automatiquement purg&eacute;s apr&egrave;s 30 jours, ou vous pouvez vider
+      la corbeille manuellement.</p>
+    </details>
+
+    <details>
+      <summary>J&rsquo;ai trouv&eacute; un bug ou j&rsquo;ai une suggestion</summary>
+      <p>Veuillez envoyer un e-mail &agrave;
+      <a href="mailto:developer.schreck@icloud.com">developer.schreck@icloud.com</a>
+      avec une description du probl&egrave;me ou de votre id&eacute;e. Les captures
+      d&rsquo;&eacute;cran ou les enregistrements d&rsquo;&eacute;cran sont tr&egrave;s utiles pour
+      les rapports de bugs.</p>
+    </details>
+
+    <h2>Contact</h2>
+    <p>
+      Sebastian Schreck<br>
+      Nürtinger Straße 52<br>
+      71032 Böblingen<br>
+      Allemagne<br>
+      T&eacute;l&eacute;phone : <a href="tel:+491623853102">+49 162 3853102</a><br>
+      E-mail : <a href="mailto:developer.schreck@icloud.com">developer.schreck@icloud.com</a>
+    </p>
+
+    <p style="margin-top: 1.5rem;">
+      <a href="https://immortalis-gitrep.github.io/archivesorter-privacy/">Politique de confidentialit&eacute;</a>
+    </p>
+  </div>
 
   <footer>
     &copy; 2026 Sebastian Schreck. All rights reserved.
   </footer>
+
+  <script>
+    function setLang(lang) {
+      document.querySelectorAll('.lang').forEach(function(el) { el.classList.remove('active'); });
+      document.querySelectorAll('.lang-switch button').forEach(function(el) { el.classList.remove('active'); });
+      document.getElementById('lang-' + lang).classList.add('active');
+      document.getElementById('btn-' + lang).classList.add('active');
+      document.documentElement.lang = lang;
+    }
+  </script>
 
 </body>
 </html>
