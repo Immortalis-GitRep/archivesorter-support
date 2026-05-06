@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ArchiveSorter — Support</title>
+  <style>
+    :root {
+      --text: #1d1d1f;
+      --muted: #6e6e73;
+      --accent: #0066cc;
+      --bg: #ffffff;
+      --border: #e5e5ea;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --text: #f5f5f7;
+        --muted: #a1a1a6;
+        --accent: #64a8ff;
+        --bg: #1d1d1f;
+        --border: #38383a;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text",
+                   "Helvetica Neue", Arial, sans-serif;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 4rem;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.25rem;
+      letter-spacing: -0.02em;
+    }
+    h2 {
+      font-size: 1.25rem;
+      margin-top: 2.25rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+    .meta {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    p { margin: 0.75rem 0; }
+    ul { padding-left: 1.25rem; }
+    li { margin: 0.35rem 0; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    details {
+      margin: 0.75rem 0;
+      padding: 0.75rem 1rem;
+      background: var(--border);
+      border-radius: 10px;
+    }
+    summary {
+      cursor: pointer;
+      font-weight: 600;
+    }
+    details p { margin: 0.5rem 0 0; }
+    .highlight {
+      background: var(--border);
+      padding: 1rem 1.25rem;
+      border-radius: 10px;
+      margin: 1.5rem 0;
+    }
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Support</h1>
+  <div class="meta">
+    ArchiveSorter &middot; Document Management for iPhone &amp; iPad
+  </div>
+
+  <div class="highlight">
+    Need help? Send an email to
+    <a href="mailto:developer.schreck@icloud.com">developer.schreck@icloud.com</a>
+    and you will receive a reply as quickly as possible.
+  </div>
+
+  <h2>Frequently Asked Questions</h2>
+
+  <details>
+    <summary>How do I get started?</summary>
+    <p>After installing the app, the onboarding guide will walk you through
+    selecting a folder as your document library. This can be a local folder
+    or a cloud-synced folder (iCloud Drive, Dropbox, etc.). Once set up,
+    you can scan or import documents and the app will automatically
+    classify and file them.</p>
+  </details>
+
+  <details>
+    <summary>Which devices are supported?</summary>
+    <p>ArchiveSorter requires iOS/iPadOS 26.0 or later and runs on
+    iPhone 11 and later as well as all supported iPads.</p>
+  </details>
+
+  <details>
+    <summary>Where are my documents stored?</summary>
+    <p>All documents are stored in the library folder you selected during
+    setup. The app never uploads your documents to any server. If you
+    chose a cloud-synced folder (e.g. iCloud Drive), synchronization
+    is handled by that cloud provider, not by ArchiveSorter.</p>
+  </details>
+
+  <details>
+    <summary>How does the AI classification work?</summary>
+    <p>ArchiveSorter uses on-device language models (Apple MLX or
+    Foundation Models) to read your scanned text and assign a category.
+    All processing happens locally on your device. Optionally, you can
+    connect a local LM Studio server on your own network for
+    classification.</p>
+  </details>
+
+  <details>
+    <summary>Can I change how a document was classified?</summary>
+    <p>Yes. Documents that the app is unsure about are placed in the
+    Review tab for your manual decision. You can also move any document
+    to a different category folder at any time using the app or the
+    Files app.</p>
+  </details>
+
+  <details>
+    <summary>Does the app work offline?</summary>
+    <p>Yes. Scanning, OCR, and on-device classification work entirely
+    without an internet connection. An internet connection is only
+    needed if you choose to download an MLX model from Hugging Face.</p>
+  </details>
+
+  <details>
+    <summary>How do I delete a document permanently?</summary>
+    <p>Deleted documents are first moved to the app's trash folder.
+    Documents in trash are automatically purged after 30 days, or you
+    can empty the trash manually.</p>
+  </details>
+
+  <details>
+    <summary>I found a bug or have a feature request</summary>
+    <p>Please send an email to
+    <a href="mailto:developer.schreck@icloud.com">developer.schreck@icloud.com</a>
+    with a description of the issue or your idea. Screenshots or screen
+    recordings are very helpful for bug reports.</p>
+  </details>
+
+  <h2>Contact</h2>
+  <p>
+    Sebastian Schreck<br>
+    Nürtinger Straße 52<br>
+    71032 Böblingen<br>
+    Germany<br>
+    Phone: <a href="tel:+491623853102">+49 162 3853102</a><br>
+    Email: <a href="mailto:developer.schreck@icloud.com">developer.schreck@icloud.com</a>
+  </p>
+
+  <p style="margin-top: 1.5rem;">
+    <a href="index.html">Privacy Policy</a>
+  </p>
+
+  <footer>
+    &copy; 2026 Sebastian Schreck. All rights reserved.
+  </footer>
+
+</body>
+</html>
