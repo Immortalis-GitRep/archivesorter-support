@@ -115,7 +115,7 @@
   <!-- ==================== ENGLISH ==================== -->
   <div class="lang active" id="lang-en">
     <h1>Support</h1>
-    <div class="meta">ArchiveSorter &middot; Document Management for iPhone &amp; iPad</div>
+    <div class="meta">ArchiveSorter &middot; Document Management for iPhone &amp; iPad &middot; Updated August 26, 2026</div>
 
     <div class="highlight">
       Need help? Send an email to
@@ -144,19 +144,27 @@
 
     <details>
       <summary>Where are my documents stored?</summary>
-      <p>All documents are stored in the library folder you selected during
-      setup. The app never uploads your documents to any server. If you
-      chose a cloud-synced folder (e.g. iCloud Drive), synchronization
-      is handled by that cloud provider, not by ArchiveSorter.</p>
+      <p>The selected library contains document files, exact original backups,
+      complete plaintext OCR sidecars, temporary processing/deletion staging,
+      and checksum-protected recovery records. If you choose a File Provider
+      folder, that provider may upload and synchronize those files under its own
+      privacy, retention, Recently Deleted, and versioning rules. The developer
+      operates no backend and receives none of this content.</p>
+      <p>Device-local data remains inside the private app container. The live app
+      and FTS/search databases, chunks and embeddings, thumbnails, conflict copies,
+      and database snapshots reside in Application Support; downloaded model
+      artifacts reside in Caches; and preferences/settings reside in
+      UserDefaults/Preferences.</p>
     </details>
 
     <details>
       <summary>How does the AI classification work?</summary>
-      <p>ArchiveSorter uses on-device language models (Apple MLX or
-      Foundation Models) to read your scanned text and assign a category.
-      All processing happens locally on your device. Optionally, you can
-      connect a local LM Studio server on your own network for
-      classification.</p>
+      <p>ArchiveSorter runs two native MLX models in sequence. OvisOCR2 transcribes
+      every complete page, then unloads before Qwen3.5 4B processes the complete
+      text for classification and Ask. Apple Foundation Models may be used
+      locally only where the feature and context permit it. Both model downloads
+      start only after your action; the app sends no document content to Hugging
+      Face.</p>
     </details>
 
     <details>
@@ -169,16 +177,23 @@
 
     <details>
       <summary>Does the app work offline?</summary>
-      <p>Yes. Scanning, OCR, and on-device classification work entirely
-      without an internet connection. An internet connection is only
-      needed if you choose to download an MLX model from Hugging Face.</p>
+      <p>After both native models and the required document files are available
+      locally, OCR and AI inference work without a remote inference server. An
+      internet connection is required for model downloads and for a File Provider
+      to synchronize or materialize online-only files.</p>
     </details>
 
     <details>
       <summary>How do I delete a document permanently?</summary>
-      <p>Deleted documents are first moved to the app's trash folder.
-      Documents in trash are automatically purged after 30 days, or you
-      can empty the trash manually.</p>
+      <p>Soft Delete moves a document to the app's trash and retains metadata and
+      search state for restoration. Permanent Delete removes the app-managed
+      document, matching original backup, OCR sidecar, and local database
+      projection. Matching device-local thumbnail cache cleanup is best effort;
+      a cache I/O failure does not weaken the committed removal of core bytes and
+      projection. Recovery history, transaction journals, and a deletion
+      tombstone remain in the selected library so another device does not restore
+      the document. A File Provider may retain its own copies under its retention,
+      trash, or versioning rules.</p>
     </details>
 
     <details>
@@ -207,7 +222,7 @@
   <!-- ==================== DEUTSCH ==================== -->
   <div class="lang" id="lang-de">
     <h1>Support</h1>
-    <div class="meta">ArchiveSorter &middot; Dokumentenverwaltung f&uuml;r iPhone &amp; iPad</div>
+    <div class="meta">ArchiveSorter &middot; Dokumentenverwaltung f&uuml;r iPhone &amp; iPad &middot; Aktualisiert am 26. August 2026</div>
 
     <div class="highlight">
       Hilfe ben&ouml;tigt? Senden Sie eine E-Mail an
@@ -237,21 +252,28 @@
 
     <details>
       <summary>Wo werden meine Dokumente gespeichert?</summary>
-      <p>Alle Dokumente werden in dem Bibliotheksordner gespeichert, den
-      Sie bei der Einrichtung ausgew&auml;hlt haben. Die App l&auml;dt Ihre
-      Dokumente niemals auf einen Server hoch. Wenn Sie einen
-      cloud-synchronisierten Ordner gew&auml;hlt haben (z.&nbsp;B. iCloud Drive),
-      wird die Synchronisation vom jeweiligen Cloud-Anbieter
-      durchgef&uuml;hrt, nicht von ArchiveSorter.</p>
+      <p>Die gew&auml;hlte Bibliothek enth&auml;lt Dokumentdateien, exakte
+      Original-Backups, vollst&auml;ndige Klartext-OCR-Sidecars, zeitweise
+      Verarbeitungs-/L&ouml;sch-Staging-Dateien und checksum-gesch&uuml;tzte
+      Wiederherstellungsdatens&auml;tze. Wenn Sie einen File-Provider-Ordner w&auml;hlen,
+      kann dieser Anbieter die Dateien nach seinen eigenen Datenschutz-,
+      Aufbewahrungs-, Papierkorb- und Versionsregeln hochladen und synchronisieren.
+      Der Entwickler betreibt kein Backend und erh&auml;lt diese Inhalte nicht.</p>
+      <p>Ger&auml;telokale Daten bleiben im privaten App-Container. Die laufende App-
+      und FTS-/Suchdatenbank, Chunks und Embeddings, Vorschaubilder,
+      Konfliktkopien und Datenbank-Snapshots liegen in Application Support;
+      heruntergeladene Modellartefakte liegen in Caches; Einstellungen liegen in
+      UserDefaults/Preferences.</p>
     </details>
 
     <details>
       <summary>Wie funktioniert die KI-Klassifizierung?</summary>
-      <p>ArchiveSorter verwendet On-Device-Sprachmodelle (Apple MLX oder
-      Foundation Models), um Ihren gescannten Text zu lesen und eine
-      Kategorie zuzuweisen. Die gesamte Verarbeitung erfolgt lokal auf
-      Ihrem Ger&auml;t. Optional k&ouml;nnen Sie einen lokalen LM-Studio-Server
-      in Ihrem Netzwerk f&uuml;r die Klassifizierung verwenden.</p>
+      <p>ArchiveSorter f&uuml;hrt zwei native MLX-Modelle nacheinander aus. OvisOCR2
+      transkribiert jede Seite vollst&auml;ndig und wird danach entladen, bevor
+      Qwen3.5 4B den vollst&auml;ndigen Text f&uuml;r Klassifizierung und Ask verarbeitet.
+      Apple Foundation Models kann nur dort lokal verwendet werden, wo Funktion
+      und Kontext dies erlauben. Beide Modelldownloads starten erst nach Ihrer
+      Aktion; Dokumentinhalte sendet die App nicht an Hugging Face.</p>
     </details>
 
     <details>
@@ -264,18 +286,26 @@
 
     <details>
       <summary>Funktioniert die App offline?</summary>
-      <p>Ja. Scannen, OCR und On-Device-Klassifizierung funktionieren
-      vollst&auml;ndig ohne Internetverbindung. Eine Internetverbindung wird
-      nur ben&ouml;tigt, wenn Sie ein MLX-Modell von Hugging Face
-      herunterladen m&ouml;chten.</p>
+      <p>Sobald beide nativen Modelle und die ben&ouml;tigten Dokumentdateien lokal
+      verf&uuml;gbar sind, funktionieren OCR und KI-Inferenz ohne entfernten
+      Inferenzserver. Eine Internetverbindung ist f&uuml;r Modelldownloads sowie zum
+      Synchronisieren oder Materialisieren von Online-Dateien durch einen File
+      Provider erforderlich.</p>
     </details>
 
     <details>
       <summary>Wie l&ouml;sche ich ein Dokument dauerhaft?</summary>
-      <p>Gel&ouml;schte Dokumente werden zun&auml;chst in den Papierkorb der App
-      verschoben. Dokumente im Papierkorb werden nach 30 Tagen
-      automatisch endg&uuml;ltig gel&ouml;scht, oder Sie k&ouml;nnen den Papierkorb
-      manuell leeren.</p>
+      <p>Weiches L&ouml;schen verschiebt ein Dokument in den App-Papierkorb und
+      beh&auml;lt Metadaten und Suchstatus f&uuml;r eine Wiederherstellung. Dauerhaftes
+      L&ouml;schen entfernt das von der App verwaltete Dokument, das passende
+      Original-Backup, das OCR-Sidecar sowie die lokale Datenbankprojektion. Die
+      Bereinigung passender ger&auml;telokaler Vorschaubild-Cacheeintr&auml;ge erfolgt nach
+      bestem Bem&uuml;hen; ein Cache-I/O-Fehler schw&auml;cht die best&auml;tigte L&ouml;schung der
+      Kerndaten und Projektion nicht. Wiederherstellungshistorie,
+      Transaktionsjournale und ein L&ouml;sch-Tombstone bleiben in der gew&auml;hlten
+      Bibliothek, damit ein anderes Ger&auml;t das Dokument nicht wiederherstellt. Ein
+      File Provider kann eigene Kopien nach seinen Aufbewahrungs-, Papierkorb-
+      oder Versionsregeln behalten.</p>
     </details>
 
     <details>
@@ -304,7 +334,7 @@
   <!-- ==================== FRANCAIS ==================== -->
   <div class="lang" id="lang-fr">
     <h1>Assistance</h1>
-    <div class="meta">ArchiveSorter &middot; Gestion de documents pour iPhone &amp; iPad</div>
+    <div class="meta">ArchiveSorter &middot; Gestion de documents pour iPhone &amp; iPad &middot; Mise &agrave; jour le 26 ao&ucirc;t 2026</div>
 
     <div class="highlight">
       Besoin d&rsquo;aide ? Envoyez un e-mail &agrave;
@@ -335,22 +365,30 @@
 
     <details>
       <summary>O&ugrave; sont stock&eacute;s mes documents ?</summary>
-      <p>Tous les documents sont stock&eacute;s dans le dossier de biblioth&egrave;que
-      que vous avez s&eacute;lectionn&eacute; lors de la configuration. L&rsquo;application
-      ne t&eacute;l&eacute;charge jamais vos documents sur un serveur. Si vous avez
-      choisi un dossier synchronis&eacute; dans le cloud (p. ex. iCloud Drive),
-      la synchronisation est g&eacute;r&eacute;e par ce fournisseur cloud, pas par
-      ArchiveSorter.</p>
+      <p>La biblioth&egrave;que choisie contient les fichiers de documents, les
+      sauvegardes originales exactes, les fichiers annexes OCR complets en clair,
+      des fichiers temporaires de traitement/pr&eacute;paration de suppression et des
+      enregistrements de r&eacute;cup&eacute;ration prot&eacute;g&eacute;s par somme de contr&ocirc;le. Si vous
+      choisissez le dossier d'un fournisseur de fichiers, celui-ci peut
+      t&eacute;l&eacute;verser et synchroniser ces fichiers selon ses propres r&egrave;gles de
+      confidentialit&eacute;, conservation, corbeille et versions. Le d&eacute;veloppeur
+      n'exploite aucun backend et ne re&ccedil;oit pas ce contenu.</p>
+      <p>Les donn&eacute;es locales restent dans le conteneur priv&eacute; de l'app. La base
+      active de l'app, la base FTS/de recherche, les segments et embeddings, les
+      vignettes, les copies de conflits et les instantan&eacute;s de base r&eacute;sident dans
+      Application Support&nbsp;; les artefacts de mod&egrave;les t&eacute;l&eacute;charg&eacute;s r&eacute;sident dans
+      Caches&nbsp;; les pr&eacute;f&eacute;rences et r&eacute;glages r&eacute;sident dans
+      UserDefaults/Preferences.</p>
     </details>
 
     <details>
       <summary>Comment fonctionne la classification par IA ?</summary>
-      <p>ArchiveSorter utilise des mod&egrave;les linguistiques sur l&rsquo;appareil
-      (Apple MLX ou Foundation Models) pour lire votre texte num&eacute;ris&eacute;
-      et attribuer une cat&eacute;gorie. Tout le traitement s&rsquo;effectue
-      localement sur votre appareil. En option, vous pouvez connecter
-      un serveur LM Studio local sur votre r&eacute;seau pour la
-      classification.</p>
+      <p>ArchiveSorter ex&eacute;cute deux mod&egrave;les MLX natifs successivement. OvisOCR2
+      transcrit chaque page int&eacute;gralement, puis est d&eacute;charg&eacute; avant que Qwen3.5 4B
+      traite le texte complet pour le classement et Ask. Apple Foundation Models
+      peut &ecirc;tre utilis&eacute; localement uniquement lorsque la fonction et le contexte
+      le permettent. Les deux t&eacute;l&eacute;chargements ne commencent qu'apr&egrave;s votre action&nbsp;;
+      l'app n'envoie aucun contenu documentaire &agrave; Hugging Face.</p>
     </details>
 
     <details>
@@ -364,18 +402,27 @@
 
     <details>
       <summary>L&rsquo;application fonctionne-t-elle hors ligne ?</summary>
-      <p>Oui. La num&eacute;risation, l&rsquo;OCR et la classification sur l&rsquo;appareil
-      fonctionnent enti&egrave;rement sans connexion Internet. Une connexion
-      Internet n&rsquo;est n&eacute;cessaire que si vous choisissez de t&eacute;l&eacute;charger
-      un mod&egrave;le MLX depuis Hugging Face.</p>
+      <p>Une fois les deux mod&egrave;les natifs et les documents requis disponibles
+      localement, l'OCR et l'inf&eacute;rence d'IA fonctionnent sans serveur d'inf&eacute;rence
+      distant. Une connexion Internet est requise pour les t&eacute;l&eacute;chargements de
+      mod&egrave;les et pour qu'un fournisseur synchronise ou mat&eacute;rialise des fichiers
+      disponibles uniquement en ligne.</p>
     </details>
 
     <details>
       <summary>Comment supprimer d&eacute;finitivement un document ?</summary>
-      <p>Les documents supprim&eacute;s sont d&rsquo;abord d&eacute;plac&eacute;s dans la corbeille
-      de l&rsquo;application. Les documents dans la corbeille sont
-      automatiquement purg&eacute;s apr&egrave;s 30 jours, ou vous pouvez vider
-      la corbeille manuellement.</p>
+      <p>La suppression r&eacute;versible d&eacute;place le document dans la corbeille et
+      conserve les m&eacute;tadonn&eacute;es et l'&eacute;tat de recherche. La suppression d&eacute;finitive
+      retire le document g&eacute;r&eacute; par l'app, la sauvegarde originale correspondante,
+      le fichier annexe OCR et la projection locale de la base de donn&eacute;es. Le
+      nettoyage des entr&eacute;es correspondantes du cache local de vignettes est
+      effectu&eacute; dans la mesure du possible&nbsp;; un &eacute;chec d'E/S du cache ne remet pas
+      en cause la suppression valid&eacute;e des donn&eacute;es principales et de la
+      projection. L'historique de r&eacute;cup&eacute;ration, les journaux de transactions et
+      un marqueur de suppression restent dans la biblioth&egrave;que choisie afin qu'un
+      autre appareil ne restaure pas le document. Un fournisseur de fichiers peut
+      conserver ses propres copies selon ses r&egrave;gles de conservation, corbeille
+      ou versions.</p>
     </details>
 
     <details>
